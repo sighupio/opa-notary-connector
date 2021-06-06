@@ -62,7 +62,7 @@ steps:
       - helm template --api-versions cert-manager.io/v1alpha3 deployments/helm/opa-notary-connector/
 
   - name: deps
-    image: golang:1.16.3-buster
+    image: golang:1.16.5-buster
     volumes:
       - name: deps
         path: /go
@@ -72,7 +72,7 @@ steps:
       - make deps
 
   - name: gosec
-    image: golang:1.16.3-buster
+    image: golang:1.16.5-buster
     volumes:
       - name: deps
         path: /go
@@ -84,7 +84,7 @@ steps:
       - deps
 
   - name: golangci-lint
-    image: golang:1.16.3-buster
+    image: golang:1.16.5-buster
     volumes:
       - name: deps
         path: /go
@@ -106,7 +106,7 @@ steps:
       - golangci-lint
 
   - name: go-test
-    image: golang:1.16.3-buster
+    image: golang:1.16.5-buster
     volumes:
       - name: deps
         path: /go
